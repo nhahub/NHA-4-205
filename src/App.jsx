@@ -1,0 +1,30 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Diet from './pages/DietPlan';
+import Contact from './pages/ContactUs';
+import Progress from './pages/Progress';
+import Exercises from './pages/Exercises';
+import Transformation from './pages/Transformation';
+import Awareness from './pages/Awareness';
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/transformation" element={<Transformation />} />
+        <Route path="/awareness" element={<Awareness />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/diet" element={<Diet />} />
+        <Route path="/progress" element={<Progress />} />
+        <Route path="/exercises" element={<Exercises />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
