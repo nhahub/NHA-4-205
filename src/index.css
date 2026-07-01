@@ -109,3 +109,31 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+ a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: var(--accent-hover);
+  }
+}
+.active {
+  color: var(--accent);
+  font-weight: 500;
+  color: #c8ff00;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  @media (max-width: 1024px) {
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  background-color: #666;
+}
+a{
+  color:aliceblue;
+}

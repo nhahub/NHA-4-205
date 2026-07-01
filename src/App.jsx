@@ -9,10 +9,13 @@ import Progress from './pages/Progress';
 import Exercises from './pages/Exercises';
 import Transformation from './pages/Transformation';
 import Awareness from './pages/Awareness';
+import DietPlan from './pages/DietPlan';
+import Navbar from './components/Navbar';
 
 export default function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -21,7 +24,7 @@ export default function App() {
         <Route path="/awareness" element={<Awareness />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/diet" element={<Diet />} />
+        <Route path="/diet" element={<DietPlan />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/exercises" element={<Exercises />} />
       </Routes>
