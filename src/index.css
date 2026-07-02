@@ -6,7 +6,8 @@
   color: #c8ff00;
 }
 nav {
-  
+  position: sticky;
+  top: 0;
   a{
     text-decoration: none;
     color:#666;
