@@ -1,42 +1,9 @@
+
 @import "tailwindcss";
-
-.active {
-  color: var(--accent);
-  font-weight: 500;
-  color: #c8ff00;
-}
-nav {
-  position: sticky;
-  top: 0;
-  a{
-    text-decoration: none;
-    color:#666;
-  }
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 32px;
-  padding: 25px;
-  @media (max-width: 1024px) {
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-  background-color: #0a0a0a;
-}
-
-body {
-  background-color: #000000;
-  
-  font-family: Arial, sans-serif;
+html, body {
+  background-color: #000000 !important;
+  color: #ffffff;
   margin: 0;
   padding: 0;
-}
-.getstarted{
-  a{
-    color: #000000;
-  }
-  border:  solid #c8ff00;
-  background-color: #c8ff00;
-  border-radius: 7px;
-  padding: 5px 12px;
+  font-family: Arial, sans-serif;
 }
