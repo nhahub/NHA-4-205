@@ -11,12 +11,15 @@ import Transformation from './pages/Transformation';
 import Awareness from './pages/Awareness';
 import DietPlan from './pages/DietPlan';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
+  const isAuthPage = window.location.pathname === '/login' || window.location.pathname === '/register';
   return (
     <BrowserRouter>
       <Navbar />
-      
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -29,6 +32,7 @@ export default function App() {
         <Route path="/progress" element={<Progress />} />
         <Route path="/exercises" element={<Exercises />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
