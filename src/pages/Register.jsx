@@ -33,14 +33,25 @@ const Register = () => {
     try {
       setLoading(true)
       // Send POST request with fields matching backend requirements
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post('https://nha-4-205-production.up.railway.app/api/auth/register', {
         name: name,
         email: email,
         password: password
       })
 
-      // Redirect user to login page upon successful account creation
-      if (response.data) {
+      //  Check if registration is successful and contains user session data
+      if (response.data && response.data.token) {
+        // Save auth data to localStorage immediately to log the user in dynamically
+        localStorage.setItem('token', response.data.token)
+        
+        if (response.data.user && response.data.user.name) {
+          localStorage.setItem('userName', response.data.user.name)
+        }
+
+        // Redirect directly to the Home page after successful registration
+        navigate('/')
+      } else {
+        // Fallback: If the backend response doesn't auto-login, send them to login page
         navigate('/login')
       }
     } catch (err) {

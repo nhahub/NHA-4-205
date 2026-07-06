@@ -26,14 +26,20 @@ const Login = () => {
     try {
       setLoading(true)
       // Send POST request to the login endpoint
-      const response = await axios.post('http://localhost:5000/api/auth/login', {
+      const response = await axios.post('https://nha-4-205-production.up.railway.app/api/auth/login', {
         email: email,
         password: password
       })
 
-      // Store the token in localStorage if login is successful
+      // Store the token and user's name in localStorage if login is successful
       if (response.data.token) {
         localStorage.setItem('token', response.data.token)
+        
+        // ✅ NEW: Save the actual user's name from backend response to match the dynamic Navbar
+        if (response.data.user && response.data.user.name) {
+          localStorage.setItem('userName', response.data.user.name)
+        }
+
         // Redirect the user to the dashboard
         navigate('/dashboard')
       }
