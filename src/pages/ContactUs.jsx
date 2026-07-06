@@ -54,7 +54,7 @@ const ContactUs = () => {
 
       {/* Hero */}
       <div className="flex flex-col items-center text-center px-6 pt-20 pb-16 max-w-4xl mx-auto">
-        <h1 className="text-white text-5xl md:text-6xl font-bold mb-4">Get in <span className="text-[#c8ff00]">touch</span></h1>
+       <h1 className="text-[#c8ff00] text-5xl md:text-6xl font-bold mb-4">Get in touch</h1>
         <p className="text-[#666] text-base md:text-lg">
           Have a question or feedback? We would love to hear from you.
         </p>

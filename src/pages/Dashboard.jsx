@@ -175,7 +175,7 @@ const Dashboard = () => {
               <a href="/exercises" className="flex-1 text-center border border-zinc-800 text-white font-bold py-3 rounded-lg hover:border-[#c8ff00] transition duration-300">
                 🏋️ Start exercise
               </a>
-              <a href="/diet-plan" className="flex-1 text-center border border-zinc-800 text-white font-bold py-3 rounded-lg hover:border-[#c8ff00] transition duration-300">
+              <a href="/diet" className="flex-1 text-center border border-zinc-800 text-white font-bold py-3 rounded-lg hover:border-[#c8ff00] transition duration-300">
                 🍽️ View diet plan
               </a>
               <a href="/awareness" className="flex-1 text-center border border-zinc-800 text-white font-bold py-3 rounded-lg hover:border-[#c8ff00] transition duration-300">
