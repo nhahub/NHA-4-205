@@ -40,7 +40,7 @@ const Dashboard = () => {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/auth/profile', {
+      const response = await fetch('https://nha-4-205-production.up.railway.app/api/auth/profile', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -60,7 +60,7 @@ const Dashboard = () => {
 
   const fetchProgressHistory = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/progress/history', {
+      const response = await fetch('https://nha-4-205-production.up.railway.app/api/progress/history', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -84,7 +84,7 @@ const Dashboard = () => {
     setLogLoading(true)
 
     try {
-      const response = await fetch('http://localhost:5000/api/progress', {
+      const response = await fetch('https://nha-4-205-production.up.railway.app/api/progress', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
