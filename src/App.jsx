@@ -13,6 +13,7 @@ import DietPlan from './pages/DietPlan';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import Chatbot from './pages/Chatbot';
 
 export default function App() {
   const isAuthPage = window.location.pathname === '/login' || window.location.pathname === '/register';
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/diet" element={<DietPlan />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/exercises" element={<Exercises />} />
+        <Route path="/chatbot" element={<Chatbot />} />
       </Routes>
       <Footer />
     </BrowserRouter>
