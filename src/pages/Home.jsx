@@ -1,43 +1,51 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const FeatureData = [
   {
     id: 1,
     icon: "🤖",
     title: "AI Chatbot",
-    description: "Get instant answers about BMI, diet, and exercise from our smart health assistant."
+    description: "Get instant answers about BMI, diet, and exercise from our smart health assistant.",
+    path: "/chatbot"
   },
   {
     id: 2,
     icon: "📊",
     title: "Progress Tracker",
-    description: "Track your weight, BMI, and activity over time with beautiful charts."
+    description: "Track your weight, BMI, and activity over time with beautiful charts.",
+    path: "/progress"
   },
   {
     id: 3,
-    icon: "📸",
+    icon: "📷",
     title: "Before & After",
-    description: "Showcase your transformation and get inspired by real results."
+    description: "Showcase your transformation and get inspired by real results.",
+    path: "/transformation"
   },
   {
     id: 4,
     icon: "🏋️",
     title: "Gym & Exercises",
-    description: "Curated workouts for every level, from beginner to advanced."
+    description: "Curated workouts for every level, from beginner to advanced.",
+    path: "/exercises"
   },
   {
     id: 5,
-    icon: "🍽️",
+    icon: "🍲",
     title: "Diet Plans",
-    description: "Personalized meal plans and calorie calculators tailored for you."
+    description: "Personalized meal plans and calorie calculators tailored for you.",
+    path: "/diet"
   },
   {
     id: 6,
     icon: "⚡",
     title: "Admin Dashboard",
-    description: "Powerful tools to manage users, content, and platform reports."
+    description: "Powerful tools to manage users, content, and platform reports.",
+    path: "/dashboard"
   }
-]
+];
+
 const testimonialsData = [
   { id: 1, initial: "AH",
       name: "Ahmed Hassan",
@@ -56,6 +64,7 @@ const testimonialsData = [
 ];
 
 const Home = () => {
+const navigate = useNavigate();
   return (
     <>
     {/* Hero section*/}
@@ -120,9 +129,9 @@ const Home = () => {
   </div>
 
   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-    {FeatureData.map((feature) => (
+    {FeatureData.map((feature) => ( 
 
-      <div key={feature.id} className="bg-[#0a0a0a] p-8 rounded-2xl border border-zinc-900 hover:border-[#c8ff00] transition duration-300 flex flex-col justify-between min-h-[220px]">
+     <div key={feature.id} className="bg-[#0a0a0a] p-8 rounded-2xl border border-zinc-900 hover:border-[#c8ff00] transition duration-300" onClick={() => navigate(feature.path)} style={{ cursor: 'pointer' }}> 
         
         <div>
           <span className="text-4xl">{feature.icon}</span>
