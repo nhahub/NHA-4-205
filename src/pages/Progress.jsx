@@ -292,7 +292,7 @@ const Progress = () => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ weight: wNum, bodyFat: bfNum })
+       body: JSON.stringify({ weight: wNum, bmi: bfNum, activity: activity.trim(), notes: notes.trim() })
       });
 
       if (res.ok) {
