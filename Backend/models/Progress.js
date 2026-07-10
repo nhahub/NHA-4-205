@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Schema for tracking user weight and progress
 const ProgressSchema = new mongoose.Schema({
     userId: { 
         type: mongoose.Schema.Types.ObjectId, 
@@ -11,9 +10,17 @@ const ProgressSchema = new mongoose.Schema({
         type: Number, 
         required: true 
     },
-    bodyFat: { 
+    bmi: {                  
         type: Number, 
         default: null 
+    },
+    activity: {            
+        type: String,
+        default: ""
+    },
+    notes: {               
+        type: String,
+        default: ""
     },
     date: { 
         type: Date, 
