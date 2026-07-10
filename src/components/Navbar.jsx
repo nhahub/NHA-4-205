@@ -42,6 +42,7 @@ const Navbar = () => {
           <NavLink to="/dashboard" className="text-zinc-400 hover:text-white transition duration-200 [&.active]:text-[#c8ff00] [&.active]:font-medium">Dashboard</NavLink>
           <NavLink to="/transformation" className="text-zinc-400 hover:text-white transition duration-200 [&.active]:text-[#c8ff00] [&.active]:font-medium">Transformation</NavLink>
           <NavLink to="/contact" className="text-zinc-400 hover:text-white transition duration-200 [&.active]:text-[#c8ff00] [&.active]:font-medium">Contact Us</NavLink>
+          <NavLink to="/chatBot" className="text-zinc-400 hover:text-white transition duration-200 [&.active]:text-[#c8ff00] [&.active]:font-medium">Chat Bot</NavLink>
         </div>
 
         {/* 2️⃣ Desktop Auth Section (Hidden on mobile, flex on desktop) */}
@@ -102,7 +103,8 @@ const Navbar = () => {
           <NavLink onClick={() => setIsOpen(false)} to="/dashboard" className="text-zinc-400 hover:text-white py-1 [&.active]:text-[#c8ff00]">Dashboard</NavLink>
           <NavLink onClick={() => setIsOpen(false)} to="/transformation" className="text-zinc-400 hover:text-white py-1 [&.active]:text-[#c8ff00]">Transformation</NavLink>
           <NavLink onClick={() => setIsOpen(false)} to="/contact" className="text-zinc-400 hover:text-white py-1 [&.active]:text-[#c8ff00]">Contact Us</NavLink>
-          
+          <NavLink onClick={() => setIsOpen(false)} to="/chatBot" className="text-zinc-400 hover:text-white py-1 [&.active]:text-[#c8ff00]">Chat Bot</NavLink>
+
           <div className="border-t border-zinc-900 my-2"></div>
 
           {/* Mobile Auth Items */}

@@ -4,43 +4,77 @@ import { useNavigate } from 'react-router-dom';
 const FeatureData = [
   {
     id: 1,
-    icon: "🤖",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2v2M12 18v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+        <rect x="6" y="8" width="12" height="10" rx="2" />
+        <path d="M9 13h.01M15 13h.01" />
+      </svg>
+    ),
     title: "AI Chatbot",
     description: "Get instant answers about BMI, diet, and exercise from our smart health assistant.",
     path: "/chatbot"
   },
   {
     id: 2,
-    icon: "📊",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+        <polyline points="17 6 23 6 23 12" />
+      </svg>
+    ),
     title: "Progress Tracker",
     description: "Track your weight, BMI, and activity over time with beautiful charts.",
     path: "/progress"
   },
   {
     id: 3,
-    icon: "📷",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
+      </svg>
+    ),
     title: "Before & After",
     description: "Showcase your transformation and get inspired by real results.",
     path: "/transformation"
   },
   {
     id: 4,
-    icon: "🏋️",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M6.5 6.5h11M6.5 17.5h11M3 10h3M18 10h3M3 14h3M18 14h3" />
+        <rect x="6" y="9" width="12" height="6" rx="1" />
+      </svg>
+    ),
     title: "Gym & Exercises",
     description: "Curated workouts for every level, from beginner to advanced.",
     path: "/exercises"
   },
   {
     id: 5,
-    icon: "🍲",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22c4.97 0 9-3.04 9-8a7 7 0 0 0-7-7c-.52 0-1.03.1-1.5.3A4.38 4.38 0 0 1 12 7c-.17 0-.33-.1-.5-.3A7 7 0 0 0 4.5 14c0 4.96 4.03 8 9 8z" />
+        <path d="M12 7V3c0-1 1-2 2-2" />
+      </svg>
+    ),
     title: "Diet Plans",
     description: "Personalized meal plans and calorie calculators tailored for you.",
     path: "/diet"
   },
   {
     id: 6,
-    icon: "⚡",
-    title: "Admin Dashboard",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="7" height="9" rx="1" />
+        <rect x="14" y="3" width="7" height="5" rx="1" />
+        <rect x="14" y="12" width="7" height="9" rx="1" />
+        <rect x="3" y="16" width="7" height="5" rx="1" />
+      </svg>
+    ),
+    title: "User Dashboard",
     description: "Powerful tools to manage users, content, and platform reports.",
     path: "/dashboard"
   }
@@ -91,7 +125,11 @@ const navigate = useNavigate();
     {/* card 1 */}
     
     <div className="bg-[#0c0c0c] border border-zinc-900 p-8 rounded-2xl w-full flex flex-col justify-between min-h-[190px]">
-      <div className="bg-red-500/10 text-red-500 w-10 h-10 rounded-xl flex items-center justify-center text-xl">🔥</div>
+      <div className="bg-red-500/10 text-red-500 w-10 h-10 rounded-xl flex items-center justify-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+        </svg>
+      </div>
       <div className="mt-4">
         <div className="text-red-500 font-black text-4xl mb-1">39.5%</div>
         <div className="text-[#666] text-xs font-medium">Obesity rate in Egypt</div>
@@ -100,7 +138,11 @@ const navigate = useNavigate();
 
     {/* card 2 */}
     <div className="bg-[#0c0c0c] border border-zinc-900 p-8 rounded-2xl w-full flex flex-col justify-between min-h-[190px]">
-      <div className="bg-green-500/10 text-green-500 w-10 h-10 rounded-xl flex items-center justify-center text-xl">💚</div>
+      <div className="bg-green-500/10 text-green-500 w-10 h-10 rounded-xl flex items-center justify-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8ff00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </svg>
+      </div>
       <div className="mt-4">
         <div className="text-[#bfff00] font-black text-4xl mb-1">15.6%</div>
         <div className="text-[#666] text-xs font-medium">Diabetes prevalence</div>
@@ -109,7 +151,12 @@ const navigate = useNavigate();
 
     {/* card 3 */}
     <div className="bg-[#0c0c0c] border border-zinc-900 p-8 rounded-2xl w-full flex flex-col justify-between min-h-[190px]">
-      <div className="bg-blue-500/10 text-blue-500 w-10 h-10 rounded-xl flex items-center justify-center text-xl">🩻</div>
+      <div className="bg-blue-500/10 text-blue-500 w-10 h-10 rounded-xl flex items-center justify-center">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+          <path d="M12 6v6l4 2" />
+        </svg>
+      </div>
       <div className="mt-4">
         <div className="text-[#4d9fff] font-black text-4xl mb-1">73%</div>
         <div className="text-[#666] text-xs font-medium">Need lifestyle change</div>

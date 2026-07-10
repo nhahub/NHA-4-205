@@ -3,7 +3,6 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import Diet from './pages/DietPlan';
 import Contact from './pages/ContactUs';
 import Progress from './pages/Progress';
 import Exercises from './pages/Exercises';

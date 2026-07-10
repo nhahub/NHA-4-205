@@ -37,9 +37,9 @@ const Footer = () => {
           <Link to="/diet" className="hover:text-white transition">Diet Plan</Link>
         </div>
 
-        {/* col 3: Resources */}
+        {/* col 3: Features */}
         <div className="flex flex-col gap-3">
-          <h4 className="text-white font-bold mb-1 text-lg">Resources</h4>
+          <h4 className="text-white font-bold mb-1 text-lg">Features</h4>
           <Link to="/progress" className="hover:text-white transition">Progress Tracker</Link>
           <Link to="/transformation" className="hover:text-white transition">Transformations</Link>
           <Link to="/chatbot" className="hover:text-white transition">AI Chatbot</Link>
