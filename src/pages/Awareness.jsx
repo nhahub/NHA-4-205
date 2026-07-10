@@ -45,6 +45,9 @@ const Awareness = () => {
     const rounded = result.toFixed(1)
     setBmi(rounded)
 
+    // save the bmi result to localStorage so the dashboard can read it
+    localStorage.setItem('bmi', rounded)
+
     if (result < 18.5) setCategory('Underweight')
     else if (result < 25) setCategory('Normal weight')
     else if (result < 30) setCategory('Overweight')
@@ -56,7 +59,7 @@ const Awareness = () => {
 
       {/* Hero */}
       <div className="flex flex-col items-center text-center px-6 pt-20 pb-16 max-w-4xl mx-auto">
-        <h1 className="text-[#c8ff00] text-5xl md:text-6xl font-bold mb-4">Health Awareness</h1>
+        <h1 className="text-white text-5xl md:text-6xl font-bold mb-4">Health <span className="text-[#c8ff00]">Awareness</span></h1>
         <p className="text-[#666] text-base md:text-lg">
           Understanding obesity and diabetes is the first step toward prevention. Here's what every Egyptian should know.
         </p>

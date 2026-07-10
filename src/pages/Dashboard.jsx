@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
-const activityFeed = [
-  { id: 1, text: "Logged a 30-min walk — 150 kcal burned" },
-  { id: 2, text: "Updated weight to 79 kg" },
-  { id: 3, text: "Completed Leg Day workout" },
-  { id: 4, text: "Viewed Breakfast meal plan" },
-]
+import { useNavigate } from 'react-router-dom'
 
 const healthTips = [
   "Aim for 7–9 hours of quality sleep every night.",
@@ -15,25 +9,24 @@ const healthTips = [
 
 const Dashboard = () => {
 
-  // user profile data from the backend
   const [profile, setProfile] = useState(null)
-
-  // progress history (weight log) from the backend
   const [progressHistory, setProgressHistory] = useState([])
-
-  // for logging new weight
   const [newWeight, setNewWeight] = useState('')
   const [logLoading, setLogLoading] = useState(false)
   const [logError, setLogError] = useState('')
-
-  // health tip rotation
   const [currentTip, setCurrentTip] = useState(0)
 
-  // get the token from localStorage — the login page saves it there
   const token = localStorage.getItem('token')
+  const navigate = useNavigate()
 
-  // runs once when the page loads — fetches profile and progress history
+  // read the bmi that was saved from the awareness page
+  const savedBmi = localStorage.getItem('bmi')
+
   useEffect(() => {
+    if (!token) {
+      navigate('/login')
+      return
+    }
     fetchProfile()
     fetchProgressHistory()
   }, [])
@@ -46,13 +39,10 @@ const Dashboard = () => {
           'Authorization': `Bearer ${token}`
         }
       })
-
       const data = await response.json()
-
       if (response.ok) {
         setProfile(data)
       }
-
     } catch (err) {
       console.log('Could not load profile', err)
     }
@@ -66,13 +56,10 @@ const Dashboard = () => {
           'Authorization': `Bearer ${token}`
         }
       })
-
       const data = await response.json()
-
       if (response.ok) {
         setProgressHistory(data)
       }
-
     } catch (err) {
       console.log('Could not load progress history', err)
     }
@@ -92,19 +79,14 @@ const Dashboard = () => {
         },
         body: JSON.stringify({ weight: parseFloat(newWeight) })
       })
-
       const data = await response.json()
-
       if (!response.ok) {
         setLogError(data.message || 'Could not log weight.')
         setLogLoading(false)
         return
       }
-
-      // add new entry to the top of the list without refetching
       setProgressHistory([data, ...progressHistory])
       setNewWeight('')
-
     } catch (err) {
       setLogError('Cannot connect to server.')
     }
@@ -135,7 +117,8 @@ const Dashboard = () => {
           <div className="bg-[#0c0c0c] border border-zinc-900 p-6 rounded-2xl">
             <div className="bg-[#c8ff00]/10 text-[#c8ff00] w-10 h-10 rounded-xl flex items-center justify-center text-xl mb-4">⚖️</div>
             <div className="text-[#c8ff00] font-black text-2xl mb-1">
-              {profile && profile.weight && profile.height
+              {/* show bmi from awareness page if saved, otherwise calculate from profile, otherwise show -- */}
+              {savedBmi ? savedBmi : profile && profile.weight && profile.height
                 ? (profile.weight / ((profile.height / 100) * (profile.height / 100))).toFixed(1)
                 : '--'}
             </div>
@@ -165,13 +148,12 @@ const Dashboard = () => {
 
       {/* Quick actions + health tip */}
       <div className="max-w-7xl mx-auto px-6 pb-12 border-t border-zinc-900 pt-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          {/* Quick actions + activity feed */}
-          <div className="md:col-span-2 bg-[#0a0a0a] border border-zinc-900 rounded-2xl p-8">
+          {/* Quick actions */}
+          <div className="bg-[#0a0a0a] border border-zinc-900 rounded-2xl p-8">
             <h3 className="text-white font-bold text-lg mb-6">Quick actions</h3>
-
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <div className="flex flex-col sm:flex-row gap-3">
               <a href="/exercises" className="flex-1 text-center border border-zinc-800 text-white font-bold py-3 rounded-lg hover:border-[#c8ff00] transition duration-300">
                 🏋️ Start exercise
               </a>
@@ -182,16 +164,6 @@ const Dashboard = () => {
                 📊 Check BMI
               </a>
             </div>
-
-            <h3 className="text-white font-bold text-lg mb-4">Recent activity</h3>
-            <ul className="flex flex-col gap-3">
-              {activityFeed.map((item) => (
-                <li key={item.id} className="flex items-center gap-3 py-3 border-b border-zinc-900 last:border-0">
-                  <span className="w-2 h-2 rounded-full bg-[#c8ff00] shrink-0"></span>
-                  <span className="text-[#999] text-sm">{item.text}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Health tip */}
@@ -211,7 +183,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Log weight + progress history from backend */}
+      {/* Log weight + progress history */}
       <div className="max-w-7xl mx-auto px-6 pb-24 border-t border-zinc-900 pt-12">
         <h3 className="text-white font-bold text-lg mb-6">Log your weight</h3>
 
@@ -236,7 +208,6 @@ const Dashboard = () => {
           <p className="text-red-400 text-sm mb-6">{logError}</p>
         )}
 
-        {/* Progress history from backend */}
         {progressHistory.length > 0 && (
           <div className="flex flex-col gap-3 max-w-sm mt-6">
             {progressHistory.map((entry, index) => (
